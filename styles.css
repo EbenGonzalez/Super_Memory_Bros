@@ -1,8 +1,25 @@
+#player{
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: black;
+    margin: auto;
+    z-index: 2;
+}
 body{
     position: relative;
     background-color: bisque;
-    height: 100vh;
-    width: 100vw;
+    height: 90vh;
+    width: 90vw;
+}
+#frontera{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    left:35%;
+    top:15%;   
+   
+
 }
 #tablero{
     position: absolute;
@@ -10,29 +27,25 @@ body{
     height: 600px;
     background-color: aqua;
     left:35%;
-    top:25%;   
+    top:15%;   
+    z-index: 1;
 }
 
 #cabecera{
     width: 600px;
     height: 100px;
     position:absolute;
-    top:200px;
-    left:745px;
+    top:10%;
+    left:35%;  
    
-    
 }
+
 .cab{
     border: 2px solid black;
     display: inline-block;
-    width: 190px;
+    width: 195px;
     height: 50px;
     text-align: center;
     margin: auto;
 }
-#player{
-    height: 150px;
-    width: 150px;
-    background-color: black;
-    
-}
+
