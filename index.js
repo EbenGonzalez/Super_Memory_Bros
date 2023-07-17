@@ -1,21 +1,21 @@
 function Player(){
     this.sprite=document.getElementById("player")
-    this.topPosition=900
-    this.leftPosition=900
+    this.topPosition=300
+    this.leftPosition=300
     this.movimiento=function(direccion){
-        if(direccion="ArrowUp"){
+        if(direccion==="ArrowUp"){
             this.topPosition-=150
             this.sprite.style.top=this.topPosition+"px"
         }
-        if(direccion="ArrowDown"){
+        if(direccion==="ArrowDown"){
             this.topPosition+=150
             this.sprite.style.top=this.topPosition+"px"
         }
-        if(direccion="ArrowRight"){
+        if(direccion==="ArrowRight"){
             this.leftPosition+=150
             this.sprite.style.left=this.leftPosition+"px"
         }
-        if(direccion="ArrowLeft"){
+        if(direccion==="ArrowLeft"){
             this.leftPosition-=150
             this.sprite.style.left=this.leftPosition+"px"
         }
