@@ -18,11 +18,16 @@ let celda16=document.getElementById("c16")
 
 let puntuacion=document.getElementById("puntuacion")
 let puntosIniciales=0
+let cronometro=document.getElementById("temporizador")
+let tiempoJuego=60
+let temporizador
+
 
 function Player(){
     this.sprite=document.getElementById("player")
     this.topPosition=0
     this.leftPosition=0
+    this.tiempo=cuentaAtras()
     this.movimiento=function(direccion){
         
         if(direccion==="ArrowUp" && this.topPosition>0){
@@ -47,6 +52,8 @@ function Player(){
             let izquierda=this.sprite.offsetLeft
             cartasprueba(arriba,izquierda)
             comprobarCartas(parejasRotas)
+            
+            
             
         }
 
@@ -152,7 +159,16 @@ function comprobarCartas(parejasRotas){
         parejasRotas.length=0
     }
 
-
+function cuentaAtras(){
+    temporizador=setInterval(function(){
+        tiempoJuego--
+        cronometro.innerText=tiempoJuego
+        if(tiempoJuego<= 0){
+            clearInterval(temporizador)
+            alert("perdiste!")
+        }
+    },1000)
+}
 
 
 const player=new Player()   
