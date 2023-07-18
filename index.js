@@ -1,8 +1,9 @@
 function Player(){
     this.sprite=document.getElementById("player")
-    this.topPosition=300
-    this.leftPosition=300
+    this.topPosition=0
+    this.leftPosition=0
     this.movimiento=function(direccion){
+        
         if(direccion==="ArrowUp"){
             this.topPosition-=150
             this.sprite.style.top=this.topPosition+"px"
@@ -23,7 +24,7 @@ function Player(){
     }
 }
 
-const player=new Player()
+const player=new Player()   
 
 const direccion=window.addEventListener("keydown",function(e){
     player.movimiento(e.key)
