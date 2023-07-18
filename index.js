@@ -16,6 +16,9 @@ let celda14=document.getElementById("c14")
 let celda15=document.getElementById("c15")
 let celda16=document.getElementById("c16")
 
+let puntuacion=document.getElementById("puntuacion")
+let puntosIniciales=0
+
 function Player(){
     this.sprite=document.getElementById("player")
     this.topPosition=0
@@ -132,14 +135,18 @@ function comprobarCartas(parejasRotas){
     let clasePrimera=primera.classList[0]
     let segunda=parejasRotas[1]
     let claseSegunda=segunda.classList[0]
+    
         if(clasePrimera!==claseSegunda){
            setTimeout(function(){
             primera.classList.remove(clasePrimera)
             primera.classList.add("trasera")
             segunda.classList.remove(claseSegunda)
             segunda.classList.add("trasera")
-           },2000)
-        }   
+           },1000)
+        }if(clasePrimera===claseSegunda){
+            puntosIniciales+=100
+            puntuacion.innerText="Puntuacion "+ puntosIniciales
+        }
         parejasRotas.length=0
     }
 
