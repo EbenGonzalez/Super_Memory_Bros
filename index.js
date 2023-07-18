@@ -43,6 +43,7 @@ function Player(){
             let arriba=this.sprite.offsetTop
             let izquierda=this.sprite.offsetLeft
             cartasprueba(arriba,izquierda)
+            comprobarCartas(parejasRotas)
             
         }
 
@@ -55,57 +56,94 @@ let parejasAleatorias= parejas.sort(function(a,b){
     return Math.random()-0.5
   })
 
+  let parejasRotas=[]
+
 function cartasprueba(arriba,izquierda){
-if(arriba===0 && izquierda===0){
+    
+if(arriba===0 && izquierda===0 && parejasRotas.length<2){
     celda1.classList.remove("trasera")
     celda1.classList.add(parejasAleatorias[0])
-}if(arriba===0 && izquierda===150){
+    parejasRotas.push(celda1)
+}if(arriba===0 && izquierda===150 && parejasRotas.length<2){
     celda2.classList.remove("trasera")
     celda2.classList.add(parejasAleatorias[1])
-    }if(arriba===0 && izquierda===300){
+    parejasRotas.push(celda2)
+    }if(arriba===0 && izquierda===300 && parejasRotas.length<2){
         celda3.classList.remove("trasera")
         celda3.classList.add(parejasAleatorias[2])
-        }if(arriba===0 && izquierda===450){
+        parejasRotas.push(celda3)
+        }if(arriba===0 && izquierda===450 && parejasRotas.length<2){
             celda4.classList.remove("trasera")
             celda4.classList.add(parejasAleatorias[3])
-            }if(arriba===150 && izquierda===0){
+            parejasRotas.push(celda4)
+            }if(arriba===150 && izquierda===0 && parejasRotas.length<2){
                 celda5.classList.remove("trasera")
                 celda5.classList.add(parejasAleatorias[4])
-                }if(arriba===150 && izquierda===150){
+                parejasRotas.push(celda5)
+                }if(arriba===150 && izquierda===150 && parejasRotas.length<2){
                     celda6.classList.remove("trasera")
                     celda6.classList.add(parejasAleatorias[5])
-                    }if(arriba===150 && izquierda===300){
+                    parejasRotas.push(celda6)
+                    }if(arriba===150 && izquierda===300 && parejasRotas.length<2){
                         celda7.classList.remove("trasera")
                         celda7.classList.add(parejasAleatorias[6])
-                        }if(arriba===150 && izquierda===450){
+                        parejasRotas.push(celda7)
+                        }if(arriba===150 && izquierda===450 && parejasRotas.length<2){
                             celda8.classList.remove("trasera")
                             celda8.classList.add(parejasAleatorias[7])
-                            }if(arriba===300 && izquierda===0){
+                            parejasRotas.push(celda8)
+                            }if(arriba===300 && izquierda===0 && parejasRotas.length<2){
                                 celda9.classList.remove("trasera")
                                 celda9.classList.add(parejasAleatorias[8])
-                                }if(arriba===300 && izquierda===150){
+                                parejasRotas.push(celda9)
+                                }if(arriba===300 && izquierda===150 && parejasRotas.length<2){
                                     celda10.classList.remove("trasera")
                                     celda10.classList.add(parejasAleatorias[9])
-                                    }if(arriba===300 && izquierda===300){
+                                    parejasRotas.push(celda10)
+                                    }if(arriba===300 && izquierda===300 && parejasRotas.length<2){
                                         celda11.classList.remove("trasera")
                                         celda11.classList.add(parejasAleatorias[10])
-                                        }if(arriba===300 && izquierda===450){
+                                        parejasRotas.push(celda11)
+                                        }if(arriba===300 && izquierda===450 && parejasRotas.length<2){
                                             celda12.classList.remove("trasera")
                                             celda12.classList.add(parejasAleatorias[11])
-                                            }if(arriba===450 && izquierda===0){
+                                            parejasRotas.push(celda12)
+                                            }if(arriba===450 && izquierda===0 && parejasRotas.length<2){
                                                 celda13.classList.remove("trasera")
                                                 celda13.classList.add(parejasAleatorias[12])
-                                                }if(arriba===450 && izquierda===150){
+                                                parejasRotas.push(celda13)
+                                                }if(arriba===450 && izquierda===150 && parejasRotas.length<2){
                                                     celda14.classList.remove("trasera")
                                                     celda14.classList.add(parejasAleatorias[13])
-                                                    }if(arriba===450 && izquierda===300){
+                                                    parejasRotas.push(celda14)
+                                                    }if(arriba===450 && izquierda===300 && parejasRotas.length<2){
                                                         celda15.classList.remove("trasera")
                                                         celda15.classList.add(parejasAleatorias[14])
-                                                        }if(arriba===450 && izquierda===450){
+                                                        parejasRotas.push(celda15)
+                                                        }if(arriba===450 && izquierda===450 && parejasRotas.length<2){
                                                             celda16.classList.remove("trasera")
                                                             celda16.classList.add(parejasAleatorias[15])
+                                                            parejasRotas.push(celda16)
                                                             }
 }
+
+function comprobarCartas(parejasRotas){
+    let primera=parejasRotas[0]
+    let clasePrimera=primera.classList[0]
+    let segunda=parejasRotas[1]
+    let claseSegunda=segunda.classList[0]
+        if(clasePrimera!==claseSegunda){
+            primera.classList.remove(clasePrimera)
+            primera.classList.add("trasera")
+            segunda.classList.remove(claseSegunda)
+            segunda.classList.add("trasera")
+           
+        }   
+        parejasRotas.length=0
+    }
+
+
+
 
 const player=new Player()   
 
