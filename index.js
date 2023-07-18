@@ -133,11 +133,12 @@ function comprobarCartas(parejasRotas){
     let segunda=parejasRotas[1]
     let claseSegunda=segunda.classList[0]
         if(clasePrimera!==claseSegunda){
+           setTimeout(function(){
             primera.classList.remove(clasePrimera)
             primera.classList.add("trasera")
             segunda.classList.remove(claseSegunda)
             segunda.classList.add("trasera")
-           
+           },2000)
         }   
         parejasRotas.length=0
     }
