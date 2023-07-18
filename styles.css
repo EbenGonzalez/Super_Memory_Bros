@@ -19,16 +19,9 @@ body{
     width: 600px;
     height: 600px;
     left:35%;
-    top:15%;   
+    top:15.5%;   
 }
-.trasera{
-    width: 150px;
-    height: 150px;
-    background-image: url(https://dbdzm869oupei.cloudfront.net/img/sticker/preview/1955.png);
-    background-size:contain;
-    background-repeat: no-repeat;
-    
-}
+
 #tablero{
     position: absolute;
     width: 600px;
@@ -42,7 +35,7 @@ body{
     width: 600px;
     height: 100px;
     position:absolute;
-    top:10%;
+    top:8%;
     left:35%;    
 }
 
@@ -54,42 +47,50 @@ body{
     text-align: center;
     margin: auto;
 }
-#pareja1{
+.trasera{
+    width: 150px;
+    height: 150px;
+    background-image: url(https://dbdzm869oupei.cloudfront.net/img/sticker/preview/1955.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    
+}
+.pareja1{
     width: 150px;
     height: 150px;
     background-color: aqua;
 }
-#pareja2{
+.pareja2{
     width: 150px;
     height: 150px;
     background-color: rgb(2, 37, 37);
 }
-#pareja3{
+.pareja3{
     width: 150px;
     height: 150px;
     background-color: rgb(223, 29, 103);
 }
-#pareja4{
+.pareja4{
     width: 150px;
     height: 150px;
     background-color: rgb(22, 204, 46);
 }
-#pareja5{
+.pareja5{
     width: 150px;
     height: 150px;
     background-color: rgb(59, 30, 184);
 }
-#pareja6{
+.pareja6{
     width: 150px;
     height: 150px;
     background-color: rgb(235, 243, 243);
 }
-#pareja7{
+.pareja7{
     width: 150px;
     height: 150px;
     background-color: rgb(172, 224, 27);
 }
-#pareja8{
+.pareja8{
     width: 150px;
     height: 150px;
     background-color: rgb(212, 24, 172);

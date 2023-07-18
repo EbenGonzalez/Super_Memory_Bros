@@ -1,3 +1,4 @@
+
 let celda1=document.getElementById("c1")
 let celda2=document.getElementById("c2")
 let celda3=document.getElementById("c3")
@@ -14,31 +15,6 @@ let celda13=document.getElementById("c13")
 let celda14=document.getElementById("c14")
 let celda15=document.getElementById("c15")
 let celda16=document.getElementById("c16")
-
-let celdasTotales=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
-
-const celdasTotalesDesorden = celdasTotales.sort(function(a,b){
-    return Math.random()-0.5
-  })
-
-  const tablero=[[],[],[],[]]
-
-  function insertarAleatorio(tablero){
-    while (tablero[0].length<4){
-      tablero[0].push(celdasTotalesDesorden.pop())
-    }while(tablero[1].length<4){
-      tablero[1].push(celdasTotalesDesorden.pop())
-    }while(tablero[2].length<4){
-      tablero[2].push(celdasTotalesDesorden.pop())
-    }while(tablero[3].length<4){
-      tablero[3].push(celdasTotalesDesorden.pop())
-    }
-    return tablero
-  }
-
-  insertarAleatorio(tablero)
-  
-
 
 function Player(){
     this.sprite=document.getElementById("player")
@@ -64,9 +40,65 @@ function Player(){
         }if(direccion===" "){
             console.log(this.sprite.offsetTop)
             console.log(this.sprite.offsetLeft)
+            let arriba=this.sprite.offsetTop
+            let izquierda=this.sprite.offsetLeft
+            cartasprueba(arriba,izquierda)
+            
         }
 
     }
+}
+
+function cartasprueba(arriba,izquierda){
+if(arriba===0 && izquierda===0){
+    celda1.classList.remove("trasera")
+    celda1.classList.add("pareja1")
+}if(arriba===0 && izquierda===150){
+    celda2.classList.remove("trasera")
+    celda2.classList.add("pareja2")
+    }if(arriba===0 && izquierda===300){
+        celda3.classList.remove("trasera")
+        celda3.classList.add("pareja3")
+        }if(arriba===0 && izquierda===450){
+            celda4.classList.remove("trasera")
+            celda4.classList.add("pareja4")
+            }if(arriba===150 && izquierda===0){
+                celda5.classList.remove("trasera")
+                celda5.classList.add("pareja5")
+                }if(arriba===150 && izquierda===150){
+                    celda6.classList.remove("trasera")
+                    celda6.classList.add("pareja6")
+                    }if(arriba===150 && izquierda===300){
+                        celda7.classList.remove("trasera")
+                        celda7.classList.add("pareja7")
+                        }if(arriba===150 && izquierda===450){
+                            celda8.classList.remove("trasera")
+                            celda8.classList.add("pareja8")
+                            }if(arriba===300 && izquierda===0){
+                                celda9.classList.remove("trasera")
+                                celda9.classList.add("pareja8")
+                                }if(arriba===300 && izquierda===150){
+                                    celda10.classList.remove("trasera")
+                                    celda10.classList.add("pareja7")
+                                    }if(arriba===300 && izquierda===300){
+                                        celda11.classList.remove("trasera")
+                                        celda11.classList.add("pareja6")
+                                        }if(arriba===300 && izquierda===450){
+                                            celda12.classList.remove("trasera")
+                                            celda12.classList.add("pareja5")
+                                            }if(arriba===450 && izquierda===0){
+                                                celda13.classList.remove("trasera")
+                                                celda13.classList.add("pareja4")
+                                                }if(arriba===450 && izquierda===150){
+                                                    celda14.classList.remove("trasera")
+                                                    celda14.classList.add("pareja3")
+                                                    }if(arriba===450 && izquierda===300){
+                                                        celda15.classList.remove("trasera")
+                                                        celda15.classList.add("pareja2")
+                                                        }if(arriba===450 && izquierda===450){
+                                                            celda16.classList.remove("trasera")
+                                                            celda16.classList.add("pareja1")
+                                                            }
 }
 
 const player=new Player()   
@@ -74,3 +106,5 @@ const player=new Player()
 const direccion=window.addEventListener("keydown",function(e){
     player.movimiento(e.key)
 })
+
+
