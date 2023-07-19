@@ -22,6 +22,12 @@ let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
 //let bandaSonora= new Audio("extras/Super Mario Bros Main Theme.mp3")
+//let inicioJuego = new Audio('extras/inicio-super-mario-bros.mp3');
+//let juegoPrincipal = new Audio('extras/juego-super-mario.mp3');
+let parejasBuenas = new Audio('extras/parejas-buenas-mario-bros.mp3');
+let parejasMalas = new Audio('extras/parejas-malas-mario-bros.mp3')
+let gameOver = new Audio('extras/game-over-mario-bros.mp3')
+//let puntuacionFinal = new Audio('extras/puntuacion-final-mario-bros.mp3')
 
 
 
@@ -101,11 +107,13 @@ function comprobarCartas(parejasRotas){
             tiempoJuego-=5
             cronometro.innerText=tiempoJuego
             puntuacion.innerText="Puntuacion "+ puntosIniciales
+            parejasMalas.play()
         }
         if(clasePrimera==="bowser"&&claseSegunda==="bowser"){
             setTimeout(function(){
                 alert("gameover")
             },1000)
+            gameOver.play()
             
         }
     
@@ -121,8 +129,10 @@ function comprobarCartas(parejasRotas){
         }if(clasePrimera===claseSegunda&&clasePrimera!=="bowser"){
             puntosIniciales+=100
             puntuacion.innerText="Puntuacion "+ puntosIniciales
+            parejasBuenas.play()
         }
         parejasRotas.length=0
+        
     }
 
 function cuentaAtras(){
@@ -131,7 +141,6 @@ function cuentaAtras(){
         cronometro.innerText=tiempoJuego
         if(tiempoJuego<= 0){
             clearInterval(temporizador)
-            alert("perdiste!")
         }
     },1000)
 }
@@ -141,7 +150,7 @@ const player=new Player()
 
 const direccion=window.addEventListener("keydown",function(e){
     player.movimiento(e.key)
-    //bandaSonora.play()
+    juegoPrincipal.play()
 })
 
 

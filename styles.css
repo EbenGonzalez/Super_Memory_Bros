@@ -49,9 +49,10 @@ body{
     justify-content: center;
     padding-top: 20px;
 }
-.seleccion{}
     
-
+.seleccion {
+    
+}
 .trasera{
     width: 150px;
     height: 150px;
