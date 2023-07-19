@@ -16,12 +16,17 @@ let celda14=document.getElementById("c14")
 let celda15=document.getElementById("c15")
 let celda16=document.getElementById("c16")
 
+let body=document.querySelector("body")
+let botonStart=document.getElementById("botonstart")
+let pantallaInicio=document.getElementById("inicio")
 let puntuacion=document.getElementById("puntuacion")
 let puntosIniciales=0
 let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
-//let bandaSonora= new Audio("extras/Super Mario Bros Main Theme.mp3")
+let bandaSonora= new Audio("extras/Super Mario Bros Main Theme.mp3")
+
+
 
 
 
@@ -29,7 +34,6 @@ function Player(){
     this.sprite=document.getElementById("player")
     this.topPosition=0
     this.leftPosition=0
-    this.tiempo=cuentaAtras()
     this.movimiento=function(direccion){
         
         if(direccion==="ArrowUp" && this.topPosition>0){
@@ -143,19 +147,20 @@ function comprobarCartas(parejasRotas){
     let segunda=parejasRotas[1]
     let claseSegunda=segunda.classList[0]
 
-        if(clasePrimera==="bowser"||claseSegunda==="bowser"){
+        if(clasePrimera==="bowser"||claseSegunda==="bowser"){  // solo un bowser
             tiempoJuego-=5
             cronometro.innerText=tiempoJuego
             puntuacion.innerText="Puntuacion "+ puntosIniciales
         }
-        if(clasePrimera==="bowser"&&claseSegunda==="bowser"){
+        if(clasePrimera==="bowser"&&claseSegunda==="bowser"){  // doble bowser game over
             setTimeout(function(){
-                alert("gameover")
+               body.innerHTML=`<div id="gameover">imagen gameover preciosa <button id="botongameover">restart</button></div>`
+               clearInterval(temporizador)
             },1000)
             
         }
     
-        if(clasePrimera!==claseSegunda){
+        if(clasePrimera!==claseSegunda){   // parejas incorrectas
            setTimeout(function(){
             primera.classList.remove(clasePrimera)
             primera.classList.remove("seleccion")
@@ -164,7 +169,7 @@ function comprobarCartas(parejasRotas){
             segunda.classList.remove("seleccion")
             segunda.classList.add("trasera")
            },1000)
-        }if(clasePrimera===claseSegunda&&clasePrimera!=="bowser"){
+        }if(clasePrimera===claseSegunda&&clasePrimera!=="bowser"){  // parejas correctas
             puntosIniciales+=100
             puntuacion.innerText="Puntuacion "+ puntosIniciales
         }
@@ -177,7 +182,7 @@ function cuentaAtras(){
         cronometro.innerText=tiempoJuego
         if(tiempoJuego<= 0){
             clearInterval(temporizador)
-            alert("perdiste!")
+            body.innerHTML=`<div id="gameover">imagen gameover preciosa <button id="botongameover">restart</button></div>`
         }
     },1000)
 }
@@ -190,4 +195,9 @@ const direccion=window.addEventListener("keydown",function(e){
     //bandaSonora.play()
 })
 
+botonStart.addEventListener("click",function(e){
+    console.log("funciono")
+    body.removeChild(pantallaInicio)
+    cuentaAtras()
+})
 

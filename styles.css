@@ -130,3 +130,35 @@ body{
     transform-style: preserve-3d;
     
 }
+#gameover{
+    height: 70vh;
+    width: 30vw;
+    top:5%;
+    left: 34%;
+    background-color:aqua;
+    position: absolute;
+    z-index: 1;
+}
+#botongameover{
+    margin:10% auto;
+    height:100px ;
+    width:100px ;
+    position: absolute;
+
+}
+#botonstart{
+    margin:10% auto;
+    height:100px ;
+    width:100px ;
+    position: absolute;
+
+}
+#inicio{
+    height: 70vh;
+    width: 30vw;
+    top:5%;
+    left: 34%;
+    background-color:rgb(0, 0, 0);
+    position: absolute;
+    z-index: 3;
+}
