@@ -16,8 +16,12 @@ let celda14=document.getElementById("c14")
 let celda15=document.getElementById("c15")
 let celda16=document.getElementById("c16")
 
+let celdasTotales=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
+
+let botonReset = document.getElementById("botongameover")
 let body=document.querySelector("body")
 let botonStart=document.getElementById("botonstart")
+let gameOver=document.getElementById("gameover")
 let pantallaInicio=document.getElementById("inicio")
 let puntuacion=document.getElementById("puntuacion")
 let puntosIniciales=0
@@ -154,7 +158,7 @@ function comprobarCartas(parejasRotas){
         }
         if(clasePrimera==="bowser"&&claseSegunda==="bowser"){  // doble bowser game over
             setTimeout(function(){
-               body.innerHTML=`<div id="gameover">imagen gameover preciosa <button id="botongameover">restart</button></div>`
+               gameOver.style.opacity=1
                clearInterval(temporizador)
             },1000)
             
@@ -176,13 +180,17 @@ function comprobarCartas(parejasRotas){
         parejasRotas.length=0
     }
 
+/*function ganador(celdasTotales){
+
+}*/
+
 function cuentaAtras(){
     temporizador=setInterval(function(){
         tiempoJuego--
         cronometro.innerText=tiempoJuego
         if(tiempoJuego<= 0){
             clearInterval(temporizador)
-            body.innerHTML=`<div id="gameover">imagen gameover preciosa <button id="botongameover">restart</button></div>`
+            gameOver.style.opacity=1
         }
     },1000)
 }
@@ -201,3 +209,7 @@ botonStart.addEventListener("click",function(e){
     cuentaAtras()
 })
 
+
+botonReset.addEventListener("click",function(e){
+    console.log("deberiamos resetear esto")
+})
