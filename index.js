@@ -22,7 +22,6 @@ let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
 
-
 function Player(){
     this.sprite=document.getElementById("player")
     this.topPosition=0
@@ -50,17 +49,14 @@ function Player(){
             console.log(this.sprite.offsetLeft)
             let arriba=this.sprite.offsetTop
             let izquierda=this.sprite.offsetLeft
-            cartasprueba(arriba,izquierda)
+            cartasTablero(arriba,izquierda)
             comprobarCartas(parejasRotas)
-            
-            
-            
         }
 
     }
 }
 
-let parejas=["pareja1","pareja1","pareja2","pareja2","pareja3","pareja3","pareja4","pareja4","pareja5","pareja5","pareja6","pareja6","pareja7","pareja7","pareja8","pareja8"]
+let parejas=["pareja1","pareja1","pareja2","pareja2","pareja3","pareja3","pareja4","pareja4","pareja5","pareja5","pareja6","pareja6","pareja7","pareja7","bowser","bowser"]
 
 let parejasAleatorias= parejas.sort(function(a,b){
     return Math.random()-0.5
@@ -68,7 +64,7 @@ let parejasAleatorias= parejas.sort(function(a,b){
 
   let parejasRotas=[]
 
-function cartasprueba(arriba,izquierda){
+function cartasTablero(arriba,izquierda){
     
 if(arriba===0 && izquierda===0 && parejasRotas.length<2 && !celda1.classList.contains("seleccion")){
     celda1.classList.remove("trasera")
@@ -142,6 +138,18 @@ function comprobarCartas(parejasRotas){
     let clasePrimera=primera.classList[0]
     let segunda=parejasRotas[1]
     let claseSegunda=segunda.classList[0]
+
+        if(clasePrimera==="bowser"||claseSegunda==="bowser"){
+            tiempoJuego-=5
+            cronometro.innerText=tiempoJuego
+            puntuacion.innerText="Puntuacion "+ puntosIniciales
+        }
+        if(clasePrimera==="bowser"&&claseSegunda==="bowser"){
+            setTimeout(function(){
+                alert("gameover")
+            },1000)
+            
+        }
     
         if(clasePrimera!==claseSegunda){
            setTimeout(function(){
@@ -152,7 +160,7 @@ function comprobarCartas(parejasRotas){
             segunda.classList.remove("seleccion")
             segunda.classList.add("trasera")
            },1000)
-        }if(clasePrimera===claseSegunda){
+        }if(clasePrimera===claseSegunda&&clasePrimera!=="bowser"){
             puntosIniciales+=100
             puntuacion.innerText="Puntuacion "+ puntosIniciales
         }
