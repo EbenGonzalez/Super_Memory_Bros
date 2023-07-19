@@ -21,6 +21,9 @@ let puntosIniciales=0
 let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
+//let bandaSonora= new Audio("extras/Super Mario Bros Main Theme.mp3")
+
+
 
 function Player(){
     this.sprite=document.getElementById("player")
@@ -51,6 +54,7 @@ function Player(){
             let izquierda=this.sprite.offsetLeft
             cartasTablero(arriba,izquierda)
             comprobarCartas(parejasRotas)
+            
         }
 
     }
@@ -183,6 +187,7 @@ const player=new Player()
 
 const direccion=window.addEventListener("keydown",function(e){
     player.movimiento(e.key)
+    //bandaSonora.play()
 })
 
 
