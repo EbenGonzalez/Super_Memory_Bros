@@ -66,10 +66,12 @@ function Player(){
         if(direccion==="ArrowRight" && this.leftPosition<450){
             this.leftPosition+=150
             this.sprite.style.left=this.leftPosition+"px"
+            this.sprite.style.transform="scaleX(1)"
         }
         if(direccion==="ArrowLeft" && this.leftPosition>0){
             this.leftPosition-=150
             this.sprite.style.left=this.leftPosition+"px"
+            this.sprite.style.transform="scaleX(-1)"
         }if(direccion===" "){
             console.log(this.sprite.offsetTop)
             console.log(this.sprite.offsetLeft)

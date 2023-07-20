@@ -2,7 +2,9 @@
     position: absolute;
     height: 150px;
     width: 150px;
-    background-color: black;
+    background-image:url("extras/marioplayer.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: auto;
     z-index: 2;
 }
@@ -56,12 +58,13 @@ body{
 .trasera{
     width: 150px;
     height: 150px;
-    background-image: url(https://dbdzm869oupei.cloudfront.net/img/sticker/preview/1955.png);
+    background-image: url(extras/reverso.png);
     background-size:contain;
     background-repeat: no-repeat;
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     transform: rotateY(180deg);
+    
     
     
 }
@@ -69,7 +72,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: aqua;
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -77,7 +80,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: rgb(2, 37, 37);
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -85,7 +88,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: rgb(223, 29, 103);
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -93,7 +96,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: rgb(22, 204, 46);
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -101,7 +104,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: rgb(59, 30, 184);
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -109,7 +112,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: rgb(235, 243, 243);
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -117,7 +120,7 @@ body{
     width: 150px;
     height: 150px;
     background-color: rgb(172, 224, 27);
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
@@ -127,7 +130,7 @@ body{
     background-image: url(https://www.pngmart.com/files/5/Bowser-PNG-Photos.png);
     background-size:contain;
     background-repeat: no-repeat;
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     transform-style: preserve-3d;
     
 }
