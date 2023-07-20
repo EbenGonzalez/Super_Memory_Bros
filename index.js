@@ -18,7 +18,9 @@ let celda16=document.getElementById("c16")
 
 let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
 let celdasTotales=[]
-let botonReset=document.getElementById("resetear")
+let insertarReset=document.getElementById("insertarreset")
+let botonReset=document.createElement("button")
+let botonMute=document.getElementById("mute")
 let body=document.querySelector("body")
 let botonStart=document.getElementById("botonstart")
 let gameOver=document.getElementById("gameover")
@@ -28,11 +30,23 @@ let puntosIniciales=0
 let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
-let bandaSonora= new Audio("extras/Super Mario Bros Main Theme.mp3")
 let puntuacionFinal=document.getElementById("winner")
+let ambiente
+let bandaSonora= new Audio("extras/inicio-super-mario-bros.mp3")
+let audioAcierto=new Audio("extras/parejas-buenas-mario-bros.mp3")
+let audioGameOver=new Audio("extras/game-over-mario-bros.mp3")
+//let audioError=new Audio
 
 
 
+function createReset(){
+botonReset.setAttribute("id", "resetear")
+insertarReset.appendChild(botonReset)
+}
+
+function deleteReset(){
+insertarReset.removeChild(botonReset)
+}
 
 
 function Player(){
@@ -162,9 +176,13 @@ function comprobarCartas(parejasRotas){
         }
         if(clasePrimera==="bowser"&&claseSegunda==="bowser"){  // doble bowser game over
             setTimeout(function(){
+               bandaSonora.pause()
+               audioGameOver.play()
                gameOver.style.opacity=1
-               botonReset.style.opacity=1
+               createReset()
                clearInterval(temporizador)
+               
+
             },1000)
             
         }
@@ -181,16 +199,17 @@ function comprobarCartas(parejasRotas){
             console.log(celdasTotales)
             puntosIniciales+=100
             puntuacion.innerText="Puntuacion "+ puntosIniciales
+            audioAcierto.play()
         }
         parejasRotas.length=0
     }
 
 function ganador(celdasTotales){
-if (celdasTotales.length===1){   // modificar esto para probar mas rapido
+if (celdasTotales.length===2){   // modificar esto para probar mas rapido
     clearInterval(temporizador)
     setTimeout(function(){
         winner.style.opacity=1
-        botonReset.style.opacity=1
+        createReset()
         let puntosTotales=puntosIniciales+tiempoJuego*10
         puntuacionFinal.innerText="Puntos= "+puntosIniciales+" Bonus Tiempo= "+tiempoJuego*10+" Puntuacion Final "+puntosTotales
     },1000)
@@ -204,7 +223,10 @@ function cuentaAtras(){
         if(tiempoJuego<= 0){
             clearInterval(temporizador)
             gameOver.style.opacity=1
-            botonReset.style.opacity=1
+            clearTimeout(ambiente)
+            audioGameOver.play()
+            createReset()
+            
         }
     },1000)
 }
@@ -214,13 +236,13 @@ function restart(){
     winner.style.opacity=0
     tiempoJuego=60
     celdasTotales=[]
-    //botonReset.style.opacity=0
     clearInterval(temporizador)
     puntuacion.innerText="Puntuacion 0"
     puntosIniciales=0
     cuentaAtras()
     resetearCeldas(celdasReset)
     desorganizar(parejasAleatorias)
+    deleteReset()
     }
 
 function resetearCeldas(celdasReset){
@@ -234,18 +256,35 @@ const player=new Player()
 
 const direccion=window.addEventListener("keydown",function(e){
     player.movimiento(e.key)
-    //bandaSonora.play()
+    
+    
 })
 
 botonStart.addEventListener("click",function(e){
     console.log("funciono")
     body.removeChild(pantallaInicio)
     cuentaAtras()
+    bandaSonora.play()
     desorganizar(parejasAleatorias)
+    /*ambiente=setTimeout(function(){
+        bandaSonora.play()
+    },100)*/
 })
 
 
 botonReset.addEventListener("click",function(e){
     console.log("deberiamos resetear esto")
     restart()
+})
+let sonido=true
+botonMute.addEventListener("click",function(e){
+    console.log("hola soy el mute")
+    if(sonido===true){
+        bandaSonora.pause()
+        sonido=false
+    }else{
+        bandaSonora.play()
+        sonido=true
+    }
+   
 })

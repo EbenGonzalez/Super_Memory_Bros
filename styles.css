@@ -48,6 +48,7 @@ body{
     text-align: center;
     justify-content: center;
     padding-top: 20px;
+    z-index: 3;
 }
 .seleccion{}
     
@@ -146,8 +147,7 @@ body{
     position: absolute;
     left: 20%; 
     top: 20%;  
-    opacity: 0;
-
+    
 }
 
 
