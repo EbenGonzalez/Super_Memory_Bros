@@ -140,13 +140,17 @@ body{
     position: absolute;
     z-index: 2;
 }
-#botongameover{
-    margin:10% auto;
+#resetear{
     height:100px ;
-    width:100px ;
+    width:100px;
     position: absolute;
+    left: 20%; 
+    top: 20%;  
+    opacity: 0;
 
 }
+
+
 #botonstart{
     margin:10% auto;
     height:100px ;

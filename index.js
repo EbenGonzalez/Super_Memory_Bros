@@ -17,7 +17,7 @@ let celda15=document.getElementById("c15")
 let celda16=document.getElementById("c16")
 
 let=celdasTotales=[]
-let botonReset=document.getElementById("botongameover")
+let botonReset=document.getElementById("resetear")
 let body=document.querySelector("body")
 let botonStart=document.getElementById("botonstart")
 let gameOver=document.getElementById("gameover")
@@ -159,6 +159,7 @@ function comprobarCartas(parejasRotas){
         if(clasePrimera==="bowser"&&claseSegunda==="bowser"){  // doble bowser game over
             setTimeout(function(){
                gameOver.style.opacity=1
+               botonReset.style.opacity=1
                clearInterval(temporizador)
             },1000)
             
@@ -182,8 +183,10 @@ function comprobarCartas(parejasRotas){
 
 function ganador(celdasTotales){
 if (celdasTotales.length===7){
+    clearInterval(temporizador)
     setTimeout(function(){
         winner.style.opacity=1
+        botonReset.style.opacity=1
     })
 }
 }
@@ -195,9 +198,18 @@ function cuentaAtras(){
         if(tiempoJuego<= 0){
             clearInterval(temporizador)
             gameOver.style.opacity=1
+            botonReset.style.opacity=1
         }
     },1000)
 }
+
+/*function restart(){
+    gameOver.style.opacity=0
+    winner.style.opacity=0
+    tiempoJuego=10
+    celdasTotales=[]
+    botonReset.style.opacity=0
+    }*/
 
 
 const player=new Player()   
@@ -216,4 +228,5 @@ botonStart.addEventListener("click",function(e){
 
 botonReset.addEventListener("click",function(e){
     console.log("deberiamos resetear esto")
+    restart()
 })
