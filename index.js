@@ -28,6 +28,7 @@ let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
 let bandaSonora= new Audio("extras/Super Mario Bros Main Theme.mp3")
+let puntuacionFinal=document.getElementById("winner")
 
 
 
@@ -182,11 +183,13 @@ function comprobarCartas(parejasRotas){
     }
 
 function ganador(celdasTotales){
-if (celdasTotales.length===7){
+if (celdasTotales.length===1){
     clearInterval(temporizador)
     setTimeout(function(){
         winner.style.opacity=1
         botonReset.style.opacity=1
+        let puntosTotales=puntosIniciales+tiempoJuego*10
+        puntuacionFinal.innerText="Puntos= "+puntosIniciales+" Bonus Tiempo= "+tiempoJuego*10+" Puntuacion Final "+puntosTotales
     })
 }
 }
@@ -228,5 +231,5 @@ botonStart.addEventListener("click",function(e){
 
 botonReset.addEventListener("click",function(e){
     console.log("deberiamos resetear esto")
-    restart()
+    //restart()
 })
