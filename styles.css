@@ -71,7 +71,9 @@ body{
 .pareja1{
     width: 150px;
     height: 150px;
-    background-color: aqua;
+    background-image: url(extras/pareja1.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
@@ -79,7 +81,9 @@ body{
 .pareja2{
     width: 150px;
     height: 150px;
-    background-color: rgb(2, 37, 37);
+    background-image: url(extras/pareja2.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
@@ -87,7 +91,9 @@ body{
 .pareja3{
     width: 150px;
     height: 150px;
-    background-color: rgb(223, 29, 103);
+    background-image: url(extras/pareja3.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
@@ -95,7 +101,9 @@ body{
 .pareja4{
     width: 150px;
     height: 150px;
-    background-color: rgb(22, 204, 46);
+    background-image: url(extras/pareja4.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
@@ -103,7 +111,9 @@ body{
 .pareja5{
     width: 150px;
     height: 150px;
-    background-color: rgb(59, 30, 184);
+    background-image: url(extras/pareja5.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
@@ -111,7 +121,9 @@ body{
 .pareja6{
     width: 150px;
     height: 150px;
-    background-color: rgb(235, 243, 243);
+    background-image: url(extras/pareja6.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
@@ -119,7 +131,9 @@ body{
 .pareja7{
     width: 150px;
     height: 150px;
-    background-color: rgb(172, 224, 27);
+    background-image: url(extras/pareja7.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
     transition: all 0.7s ease;
     transform-style: preserve-3d;
     
