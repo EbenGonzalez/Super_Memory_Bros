@@ -16,9 +16,8 @@ let celda14=document.getElementById("c14")
 let celda15=document.getElementById("c15")
 let celda16=document.getElementById("c16")
 
-let celdasTotales=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
-
-let botonReset = document.getElementById("botongameover")
+let=celdasTotales=[]
+let botonReset=document.getElementById("botongameover")
 let body=document.querySelector("body")
 let botonStart=document.getElementById("botonstart")
 let gameOver=document.getElementById("gameover")
@@ -62,6 +61,7 @@ function Player(){
             let izquierda=this.sprite.offsetLeft
             cartasTablero(arriba,izquierda)
             comprobarCartas(parejasRotas)
+            ganador(celdasTotales)
             
         }
 
@@ -78,69 +78,69 @@ let parejasAleatorias= parejas.sort(function(a,b){
 
 function cartasTablero(arriba,izquierda){
     
-if(arriba===0 && izquierda===0 && parejasRotas.length<2 && !celda1.classList.contains("seleccion")){
+if(arriba===0 && izquierda===0 && parejasRotas.length<2 && celda1.classList.contains("trasera")){
     celda1.classList.remove("trasera")
-    celda1.classList.add(parejasAleatorias[0], "seleccion")
+    celda1.classList.add(parejasAleatorias[0])
     parejasRotas.push(celda1)
-}if(arriba===0 && izquierda===150 && parejasRotas.length<2 && !celda2.classList.contains("seleccion")){
+}if(arriba===0 && izquierda===150 && parejasRotas.length<2 && celda2.classList.contains("trasera")){
     celda2.classList.remove("trasera")
-    celda2.classList.add(parejasAleatorias[1], "seleccion")
+    celda2.classList.add(parejasAleatorias[1])
     parejasRotas.push(celda2)
-    }if(arriba===0 && izquierda===300 && parejasRotas.length<2 && !celda3.classList.contains("seleccion")){
+    }if(arriba===0 && izquierda===300 && parejasRotas.length<2 && celda3.classList.contains("trasera")){
         celda3.classList.remove("trasera")
-        celda3.classList.add(parejasAleatorias[2], "seleccion")
+        celda3.classList.add(parejasAleatorias[2])
         parejasRotas.push(celda3)
-        }if(arriba===0 && izquierda===450 && parejasRotas.length<2 && !celda4.classList.contains("seleccion")){
+        }if(arriba===0 && izquierda===450 && parejasRotas.length<2 && celda4.classList.contains("trasera")){
             celda4.classList.remove("trasera")
-            celda4.classList.add(parejasAleatorias[3], "seleccion")
+            celda4.classList.add(parejasAleatorias[3])
             parejasRotas.push(celda4)
-            }if(arriba===150 && izquierda===0 && parejasRotas.length<2 && !celda5.classList.contains("seleccion")){
+            }if(arriba===150 && izquierda===0 && parejasRotas.length<2 && celda5.classList.contains("trasera")){
                 celda5.classList.remove("trasera")
-                celda5.classList.add(parejasAleatorias[4], "seleccion")
+                celda5.classList.add(parejasAleatorias[4])
                 parejasRotas.push(celda5)
-                }if(arriba===150 && izquierda===150 && parejasRotas.length<2 && !celda6.classList.contains("seleccion")){
+                }if(arriba===150 && izquierda===150 && parejasRotas.length<2 && celda6.classList.contains("trasera")){
                     celda6.classList.remove("trasera")
-                    celda6.classList.add(parejasAleatorias[5], "seleccion")
+                    celda6.classList.add(parejasAleatorias[5])
                     parejasRotas.push(celda6)
-                    }if(arriba===150 && izquierda===300 && parejasRotas.length<2 && !celda7.classList.contains("seleccion")){
+                    }if(arriba===150 && izquierda===300 && parejasRotas.length<2 && celda7.classList.contains("trasera")){
                         celda7.classList.remove("trasera")
-                        celda7.classList.add(parejasAleatorias[6], "seleccion")
+                        celda7.classList.add(parejasAleatorias[6])
                         parejasRotas.push(celda7)
-                        }if(arriba===150 && izquierda===450 && parejasRotas.length<2 && !celda8.classList.contains("seleccion")){
+                        }if(arriba===150 && izquierda===450 && parejasRotas.length<2 && celda8.classList.contains("trasera")){
                             celda8.classList.remove("trasera")
-                            celda8.classList.add(parejasAleatorias[7], "seleccion")
+                            celda8.classList.add(parejasAleatorias[7])
                             parejasRotas.push(celda8)
-                            }if(arriba===300 && izquierda===0 && parejasRotas.length<2 && !celda9.classList.contains("seleccion")){
+                            }if(arriba===300 && izquierda===0 && parejasRotas.length<2 && celda9.classList.contains("trasera")){
                                 celda9.classList.remove("trasera")
-                                celda9.classList.add(parejasAleatorias[8], "seleccion")
+                                celda9.classList.add(parejasAleatorias[8])
                                 parejasRotas.push(celda9)
-                                }if(arriba===300 && izquierda===150 && parejasRotas.length<2 && !celda10.classList.contains("seleccion")){
+                                }if(arriba===300 && izquierda===150 && parejasRotas.length<2 && celda10.classList.contains("trasera")){
                                     celda10.classList.remove("trasera")
-                                    celda10.classList.add(parejasAleatorias[9], "seleccion")
+                                    celda10.classList.add(parejasAleatorias[9])
                                     parejasRotas.push(celda10)
-                                    }if(arriba===300 && izquierda===300 && parejasRotas.length<2 && !celda11.classList.contains("seleccion")){
+                                    }if(arriba===300 && izquierda===300 && parejasRotas.length<2 && celda11.classList.contains("trasera")){
                                         celda11.classList.remove("trasera")
-                                        celda11.classList.add(parejasAleatorias[10], "seleccion")
+                                        celda11.classList.add(parejasAleatorias[10])
                                         parejasRotas.push(celda11)
-                                        }if(arriba===300 && izquierda===450 && parejasRotas.length<2 && !celda12.classList.contains("seleccion")){
+                                        }if(arriba===300 && izquierda===450 && parejasRotas.length<2 && celda12.classList.contains("trasera")){
                                             celda12.classList.remove("trasera")
-                                            celda12.classList.add(parejasAleatorias[11], "seleccion")
+                                            celda12.classList.add(parejasAleatorias[11])
                                             parejasRotas.push(celda12)
-                                            }if(arriba===450 && izquierda===0 && parejasRotas.length<2 && !celda13.classList.contains("seleccion")){
+                                            }if(arriba===450 && izquierda===0 && parejasRotas.length<2 && celda13.classList.contains("trasera")){
                                                 celda13.classList.remove("trasera")
-                                                celda13.classList.add(parejasAleatorias[12], "seleccion")
+                                                celda13.classList.add(parejasAleatorias[12])
                                                 parejasRotas.push(celda13)
-                                                }if(arriba===450 && izquierda===150 && parejasRotas.length<2 && !celda14.classList.contains("seleccion")){
+                                                }if(arriba===450 && izquierda===150 && parejasRotas.length<2 && celda14.classList.contains("trasera")){
                                                     celda14.classList.remove("trasera")
-                                                    celda14.classList.add(parejasAleatorias[13], "seleccion")
+                                                    celda14.classList.add(parejasAleatorias[13])
                                                     parejasRotas.push(celda14)
-                                                    }if(arriba===450 && izquierda===300 && parejasRotas.length<2 && !celda15.classList.contains("seleccion")){
+                                                    }if(arriba===450 && izquierda===300 && parejasRotas.length<2 && celda15.classList.contains("trasera")){
                                                         celda15.classList.remove("trasera")
-                                                        celda15.classList.add(parejasAleatorias[14], "seleccion")
+                                                        celda15.classList.add(parejasAleatorias[14])
                                                         parejasRotas.push(celda15)
-                                                        }if(arriba===450 && izquierda===450 && parejasRotas.length<2 && !celda16.classList.contains("seleccion")){
+                                                        }if(arriba===450 && izquierda===450 && parejasRotas.length<2 && celda16.classList.contains("trasera")){
                                                             celda16.classList.remove("trasera")
-                                                            celda16.classList.add(parejasAleatorias[15], "seleccion")
+                                                            celda16.classList.add(parejasAleatorias[15])
                                                             parejasRotas.push(celda16)
                                                             }
 }
@@ -167,22 +167,26 @@ function comprobarCartas(parejasRotas){
         if(clasePrimera!==claseSegunda){   // parejas incorrectas
            setTimeout(function(){
             primera.classList.remove(clasePrimera)
-            primera.classList.remove("seleccion")
             primera.classList.add("trasera")
             segunda.classList.remove(claseSegunda)
-            segunda.classList.remove("seleccion")
             segunda.classList.add("trasera")
            },1000)
         }if(clasePrimera===claseSegunda&&clasePrimera!=="bowser"){  // parejas correctas
+            celdasTotales.push(parejasRotas)
+            console.log(celdasTotales)
             puntosIniciales+=100
             puntuacion.innerText="Puntuacion "+ puntosIniciales
         }
         parejasRotas.length=0
     }
 
-/*function ganador(celdasTotales){
-
-}*/
+function ganador(celdasTotales){
+if (celdasTotales.length===7){
+    setTimeout(function(){
+        winner.style.opacity=1
+    })
+}
+}
 
 function cuentaAtras(){
     temporizador=setInterval(function(){
