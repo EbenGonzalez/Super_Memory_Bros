@@ -58,6 +58,9 @@ body{
     text-align: center;
     justify-content: center;
     padding-top: 20px;
+    font-family:"mariofont";
+    font-size: 20px;
+    color: white;
     
 }
 .seleccion{}
@@ -161,13 +164,14 @@ body{
     width: 700px;
     top:5%;
     left: 35%;
-    background-image: url(extras/gifgameover.gif);
-    background-size:contain;
+    background-image: url(extras/gameover.png);
+    background-size:inherit;
     background-repeat: no-repeat;
     border: 4px solid black;
     opacity: 0;
     position: absolute;
     z-index: 2;
+    border:5px solid white
 }
 #resetear{
     height:100px ;
@@ -223,7 +227,7 @@ body{
     width: 650px;
     z-index: 2;
     text-align: end;
-    font-size: 50px;
+    font-size: 55px;
     margin-top: 20%;
     font-family: "mariofont";
     
@@ -234,7 +238,7 @@ body{
     width: 650px;
     z-index: 2;
     text-align: end;
-    font-size: 50px;
+    font-size: 55px;
     font-family: "mariofont";
 }
 #sumapuntos{
@@ -243,7 +247,7 @@ body{
     width: 650px;
     z-index: 2;
     text-align: end;
-    font-size: 50px;
+    font-size: 55px;
     font-family: "mariofont";
     
 }
