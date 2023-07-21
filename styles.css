@@ -11,7 +11,9 @@
 
 body{
     position: relative;
-    background-color: bisque;
+    background-image: url(extras/fondo.jpg);
+    background-size:cover; 
+    background-repeat: no-repeat;
     height: 90vh;
     width: 90vw;
 }
@@ -31,6 +33,7 @@ body{
     left:35%;
     top:15%;   
     z-index: 1;
+    
 }
 
 #cabecera{
@@ -141,7 +144,7 @@ body{
 .bowser{
     width: 150px;
     height: 150px;
-    background-image: url(https://www.pngmart.com/files/5/Bowser-PNG-Photos.png);
+    background-image: url(extras/bowserfinal.jpg);
     background-size:contain;
     background-repeat: no-repeat;
     transition: all 0.7s ease;
@@ -169,26 +172,31 @@ body{
 
 
 #botonstart{
-    margin:10% auto;
-    height:100px ;
-    width:100px ;
-    position: absolute;
+    margin: 46% 7.5%;
+    height:120px ;
+    width:120px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 #inicio{
-    height: 70vh;
-    width: 30vw;
+    height: 700px;
+    width: 700px;
     top:5%;
-    left: 34%;
-    background-color:aquamarine;
+    left: 35%;
+    background-image: url(extras/inicio.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
     z-index: 3;
+    border: 4px solid black;
 }
 #winner{
-    height: 70vh;
-    width: 30vw;
+    height: 700px;
+    width: 700px;
     top:5%;
-    left: 34%;
+    left: 35%;
     background-color:blueviolet;
     opacity: 0;
     position: absolute;
