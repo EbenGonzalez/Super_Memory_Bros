@@ -177,13 +177,23 @@ body{
     border:5px solid white
 }
 #resetear{
-    height:100px ;
-    width:100px;
+    height:120px ;
+    width:120px;
     position: absolute;
-    left: 50%; 
-    top: 35%;  
+    left: 40%; 
+    top: 65%;  
     z-index: 3;
-    
+    background-color: white;
+    background-image: url(extras/concha.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 90px;
+    border: 6px solid black;
+ 
+}
+#resetear:hover{
+    background-color:red;
 }
 
 
@@ -193,16 +203,17 @@ body{
     width:136px ;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-image: url(extras/bloque.png);
+    align-items: end;
+    background-image: url(extras/cubo.gif);
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color:white;
     font-family: "mariofont";
     font-size: 25px;
-    letter-spacing:4px ;
-    border: none;
+    letter-spacing:5px ;
     cursor: pointer;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+    
 
 }
 
