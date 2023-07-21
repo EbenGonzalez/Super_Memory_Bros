@@ -28,16 +28,20 @@ let pantallaInicio=document.getElementById("inicio")
 let puntuacion=document.getElementById("puntuacion")
 let puntosIniciales=0
 let cronometro=document.getElementById("temporizador")
-let tiempoJuego=60
+let tiempoJuego=60 //////////////////////////////////////////////ojooo
 let temporizador
 let puntuacionFinal=document.getElementById("winner")
 let puntosFinales=document.getElementById("puntosfinales")
 let puntosTiempo=document.getElementById("puntostiempo")
 let sumapuntos=document.getElementById("sumapuntos")
-let ambiente
-let bandaSonora= new Audio("extras/inicio-super-mario-bros.mp3")
-let audioAcierto=new Audio("extras/parejas-buenas-mario-bros.mp3")
+//let ambiente
+let bandaSonora= new Audio("extras/tema-principal.mp3")
+let audioAcierto=new Audio("extras/parejas-buenas.mp3")
 let audioGameOver=new Audio("extras/game-over-mario-bros.mp3")
+let audioWinner=new Audio("extras/winner.mp3")
+//let audioFallo=new Audio("extras/error-parejas.mp3")
+let audioReset=new Audio("extras/reset.mp3")
+let audioGiro=new Audio("extras/girar-carta.mp3")
 //let audioError=new Audio
 
 
@@ -78,6 +82,7 @@ function Player(){
             this.sprite.style.left=this.leftPosition+"px"
             this.sprite.style.transform="scaleX(-1)"
         }if(direccion===" "){
+            audioGiro.play()
             console.log(this.sprite.offsetTop)
             console.log(this.sprite.offsetLeft)
             let arriba=this.sprite.offsetTop
@@ -177,6 +182,7 @@ function comprobarCartas(parejasRotas){
     let claseSegunda=segunda.classList[0]
 
         if(clasePrimera==="bowser"||claseSegunda==="bowser"){  // solo un bowser
+            //audioFallo.play()
             tiempoJuego-=5
             cronometro.innerText=tiempoJuego
             puntuacion.innerText="Puntuacion "+ puntosIniciales
@@ -195,6 +201,7 @@ function comprobarCartas(parejasRotas){
         }
     
         if(clasePrimera!==claseSegunda){   // parejas incorrectas
+            //audioFallo.play()
            setTimeout(function(){
             primera.classList.remove(clasePrimera)
             primera.classList.add("trasera")
@@ -216,6 +223,8 @@ if (celdasTotales.length===2){   // modificar esto para probar mas rapido
     clearInterval(temporizador)
     setTimeout(function(){
         winner.style.opacity=1
+        bandaSonora.pause()
+        audioWinner.play()
         createReset()
         let puntosTotales=puntosIniciales+tiempoJuego*10
         puntosFinales.innerText=puntosIniciales
@@ -232,9 +241,10 @@ function cuentaAtras(){
         if(tiempoJuego<= 0){
             clearInterval(temporizador)
             gameOver.style.opacity=1
-            clearTimeout(ambiente)
-            audioGameOver.play()
+            bandaSonora.pause()
             createReset()
+            audioGameOver.play()
+            
             
         }
     },1000)
@@ -243,7 +253,7 @@ function cuentaAtras(){
 function restart(){
     gameOver.style.opacity=0
     winner.style.opacity=0
-    tiempoJuego=60
+    tiempoJuego=60                   //ojo tiempoooo
     celdasTotales=[]
     clearInterval(temporizador)
     puntuacion.innerText="Puntuacion 0"
@@ -252,6 +262,8 @@ function restart(){
     resetearCeldas(celdasReset)
     desorganizar(parejasAleatorias)
     deleteReset()
+    bandaSonora.currentTime = 0
+    bandaSonora.play()
     }
 
 function resetearCeldas(celdasReset){
@@ -283,6 +295,7 @@ botonStart.addEventListener("click",function(e){
 
 botonReset.addEventListener("click",function(e){
     console.log("deberiamos resetear esto")
+    audioReset.play()
     restart()
 })
 /*let sonido=true
