@@ -218,9 +218,9 @@ if (celdasTotales.length===2){   // modificar esto para probar mas rapido
         winner.style.opacity=1
         createReset()
         let puntosTotales=puntosIniciales+tiempoJuego*10
-        puntosFinales.innerText="Puntos: "+puntosIniciales
-        puntosTiempo.innerText="Bonus: "+tiempoJuego*10
-        sumapuntos.innerText="Total: "+puntosTotales
+        puntosFinales.innerText=puntosIniciales
+        puntosTiempo.innerText=tiempoJuego*10
+        sumapuntos.innerText=puntosTotales
     },1000)
 }
 }
