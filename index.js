@@ -31,6 +31,9 @@ let cronometro=document.getElementById("temporizador")
 let tiempoJuego=60
 let temporizador
 let puntuacionFinal=document.getElementById("winner")
+let puntosFinales=document.getElementById("puntosfinales")
+let puntosTiempo=document.getElementById("puntostiempo")
+let sumapuntos=document.getElementById("sumapuntos")
 let ambiente
 let bandaSonora= new Audio("extras/inicio-super-mario-bros.mp3")
 let audioAcierto=new Audio("extras/parejas-buenas-mario-bros.mp3")
@@ -41,7 +44,9 @@ let audioGameOver=new Audio("extras/game-over-mario-bros.mp3")
 
 function createReset(){
 botonReset.setAttribute("id", "resetear")
-insertarReset.appendChild(botonReset)
+setTimeout(function(){
+    insertarReset.appendChild(botonReset)
+    },3000)
 }
 
 function deleteReset(){
@@ -213,7 +218,9 @@ if (celdasTotales.length===2){   // modificar esto para probar mas rapido
         winner.style.opacity=1
         createReset()
         let puntosTotales=puntosIniciales+tiempoJuego*10
-        puntuacionFinal.innerText="Puntos= "+puntosIniciales+" Bonus Tiempo= "+tiempoJuego*10+" Puntuacion Final "+puntosTotales
+        puntosFinales.innerText=puntosIniciales
+        puntosTiempo.innerText=tiempoJuego*10
+        sumapuntos.innerText=puntosTotales
     },1000)
 }
 }
