@@ -20,7 +20,7 @@ let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,
 let celdasTotales=[]
 let insertarReset=document.getElementById("insertarreset")
 let botonReset=document.createElement("button")
-let botonMute=document.getElementById("mute")
+//let botonMute=document.getElementById("mute")
 let body=document.querySelector("body")
 let botonStart=document.getElementById("botonstart")
 let gameOver=document.getElementById("gameover")
@@ -285,7 +285,7 @@ botonReset.addEventListener("click",function(e){
     console.log("deberiamos resetear esto")
     restart()
 })
-let sonido=true
+/*let sonido=true
 botonMute.addEventListener("click",function(e){
     console.log("hola soy el mute")
     if(sonido===true){
@@ -295,5 +295,4 @@ botonMute.addEventListener("click",function(e){
         bandaSonora.play()
         sonido=true
     }
-   
-})
+})*/
