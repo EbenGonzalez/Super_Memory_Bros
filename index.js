@@ -325,18 +325,25 @@ function Enemigo(top){
         this.sprite.style.left=this.leftPosition+"px"
         frontera.appendChild(this.sprite)
     }
-
     this.move=function(){
-        self.leftPosition+=10
+        self.leftPosition+=5
         self.sprite.style.left=self.leftPosition+"px"
+        if(self.leftPosition>=450){
+            self.borraBalas()
+            clearInterval(this.timerId)
+        }
     }
-
+    this.borraBalas=function(){   /*removeEnemy */
+        frontera.removeChild(this.sprite)
+    }
     this.timerId=setInterval(this.move,50)
 }
+
 
 function insertarBalas(){    /*start */
     let balasTimer=setInterval(generadorBalas,2000)
 }
+
 
 function generadorBalas(){/*createEnemy*/ 
     desorganizar(posicionBalas)
