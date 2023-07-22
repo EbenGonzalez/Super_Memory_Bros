@@ -162,6 +162,14 @@ body{
     transform-style: preserve-3d;
     
 }
+#soygif{
+    background-image: url(extras/gameovergif.gif);
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 700px;
+    z-index: 2;
+}
 #gameover{
     height: 700px;
     width: 700px;

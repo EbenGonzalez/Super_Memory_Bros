@@ -219,7 +219,7 @@ function comprobarCartas(parejasRotas){
     }
 
 function ganador(celdasTotales){
-if (celdasTotales.length===2){   // modificar esto para probar mas rapido
+if (celdasTotales.length===7){   // modificar esto para probar mas rapido
     clearInterval(temporizador)
     setTimeout(function(){
         winner.style.opacity=1
