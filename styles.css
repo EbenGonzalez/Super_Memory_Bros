@@ -302,3 +302,11 @@ position:absolute;
     background-repeat: no-repeat;
     position:absolute;
 }
+
+.balas{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    z-index: 3;
+}

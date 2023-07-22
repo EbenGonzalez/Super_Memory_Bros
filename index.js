@@ -42,6 +42,7 @@ let audioWinner=new Audio("extras/winner.mp3")
 //let audioFallo=new Audio("extras/error-parejas.mp3")
 let audioReset=new Audio("extras/reset.mp3")
 let audioGiro=new Audio("extras/girar-carta.mp3")
+let frontera=document.getElementById("frontera")
 //let audioError=new Audio
 
 
@@ -284,6 +285,7 @@ const direccion=window.addEventListener("keydown",function(e){
 botonStart.addEventListener("click",function(e){
     console.log("funciono")
     body.removeChild(pantallaInicio)
+    insertarBalas()
     cuentaAtras()
     bandaSonora.play()
     desorganizar(parejasAleatorias)
@@ -309,3 +311,23 @@ botonMute.addEventListener("click",function(e){
         sonido=true
     }
 })*/
+
+function Enemigo(){
+    this.sprite=document.createElement("div")
+    this.topPosition=0
+    this.leftPosition=0
+
+    this.creadorBalas=function(frontera){
+        this.sprite.classList.add("balas")
+        this.sprite.style.top=this.topPosition+"px"
+        this.sprite.style.left=this.leftPosition+"px"
+        frontera.appendChild(this.sprite)
+    }
+}
+
+function insertarBalas(){
+    let balasTimer=setInterval(function(){
+        const balas=new Enemigo()
+        balas.creadorBalas(frontera)
+    },2000)
+}
