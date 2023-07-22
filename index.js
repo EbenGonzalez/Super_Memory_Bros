@@ -314,16 +314,24 @@ botonMute.addEventListener("click",function(e){
 })*/
 
 function Enemigo(top){
+    let self=this
     this.sprite=document.createElement("div")
     this.topPosition=top
     this.leftPosition=0
 
-    this.creadorBalas=function(frontera){
+    this.creadorBalas=function(frontera){   /*insertEnemy */
         this.sprite.classList.add("balas")
         this.sprite.style.top=this.topPosition+"px"
         this.sprite.style.left=this.leftPosition+"px"
         frontera.appendChild(this.sprite)
     }
+
+    this.move=function(){
+        self.leftPosition+=10
+        self.sprite.style.left=self.leftPosition+"px"
+    }
+
+    this.timerId=setInterval(this.move,50)
 }
 
 function insertarBalas(){    /*start */
