@@ -66,6 +66,7 @@ function Player(){
     this.sprite=document.getElementById("player")
     this.topPosition=0
     this.leftPosition=0
+    this.impacto=false
     this.movimiento=function(direccion){
                 
         if(direccion==="ArrowUp" && this.topPosition>0){
@@ -189,7 +190,7 @@ function comprobarCartas(parejasRotas){
             //audioFallo.play()
             tiempoJuego-=5
             cronometro.innerText=tiempoJuego
-            puntuacion.innerText="Puntuacion "+ puntosIniciales
+           // puntuacion.innerText="Puntuacion "+ puntosIniciales
         }
         if(clasePrimera==="bowser"&&claseSegunda==="bowser"){  // doble bowser game over
             setTimeout(function(){
@@ -365,11 +366,16 @@ function colisiones(balas,player){
     if( balas.topPosition>=player.topPosition &&
         balas.topPosition<=player.topPosition+150 &&
         balas.leftPosition+50>=player.leftPosition &&
-        balas.leftPosition<=player.leftPosition+150
+        balas.leftPosition<=player.leftPosition+150 &&
+        balas.sprite.parentNode===frontera
 
     )
     {
-        console.log("me colisiono todo loco")
+        frontera.removeChild(balas.sprite)
+        console.log("pum")
+        tiempoJuego-=1
+            cronometro.innerText=tiempoJuego
+        
     }
 }
 
