@@ -44,7 +44,9 @@ let audioReset=new Audio("extras/reset.mp3")
 let audioGiro=new Audio("extras/girar-carta.mp3")
 let frontera=document.getElementById("frontera")
 //let audioError=new Audio
-let posicionBalas=["0","150","300","450"]
+let posicionBalas=["50","200","350","500"]
+
+
 
 
 
@@ -196,9 +198,13 @@ function comprobarCartas(parejasRotas){
                gameOver.style.opacity=1
                createReset()
                clearInterval(temporizador)
+               clearInterval(timerInsertar)
                
+              
+          
 
             },1000)
+            
             
         }
     
@@ -224,6 +230,7 @@ function ganador(celdasTotales){
 if (celdasTotales.length===7){   // modificar esto para probar mas rapido
     clearInterval(temporizador)
     setTimeout(function(){
+        clearInterval(timerInsertar)
         winner.style.opacity=1
         bandaSonora.pause()
         audioWinner.play()
@@ -241,6 +248,7 @@ function cuentaAtras(){
         tiempoJuego--
         cronometro.innerText=tiempoJuego
         if(tiempoJuego<= 0){
+            clearInterval(timerInsertar)
             clearInterval(temporizador)
             gameOver.style.opacity=1
             bandaSonora.pause()
@@ -313,41 +321,56 @@ botonMute.addEventListener("click",function(e){
     }
 })*/
 
-function Enemigo(top){
-    let self=this
+function Balas(top){
     this.sprite=document.createElement("div")
+    this.sprite.classList.add("balas")
     this.topPosition=top
     this.leftPosition=0
-
-    this.creadorBalas=function(frontera){   /*insertEnemy */
-        this.sprite.classList.add("balas")
-        this.sprite.style.top=this.topPosition+"px"
-        this.sprite.style.left=this.leftPosition+"px"
-        frontera.appendChild(this.sprite)
-    }
-    this.move=function(){
-        self.leftPosition+=5
-        self.sprite.style.left=self.leftPosition+"px"
-        if(self.leftPosition>=450){
-            self.borraBalas()
-            clearInterval(this.timerId)
-        }
-    }
-    this.borraBalas=function(){   /*removeEnemy */
-        frontera.removeChild(this.sprite)
-    }
-    this.timerId=setInterval(this.move,50)
+    this.sprite.style.top=this.topPosition+"px"
+    this.sprite.style.left=this.leftPosition+"px"
 }
 
-
-function insertarBalas(){    /*start */
-    let balasTimer=setInterval(generadorBalas,2000)
-}
-
-
-function generadorBalas(){/*createEnemy*/ 
+function creadorBalas(){
     desorganizar(posicionBalas)
     let randomTop=posicionBalas[1]
-    const balas=new Enemigo(randomTop)
-    balas.creadorBalas(frontera)
+    const balas=new Balas(randomTop)
+    frontera.appendChild(balas.sprite)
+    mueveBalas(balas)
 }
+
+let timerMueve
+function mueveBalas(balas){
+    timerMueve=setInterval (function(){
+        balas.leftPosition+=5
+        balas.sprite.style.left=balas.leftPosition+"px"
+        colisiones(balas,player)
+
+        if(balas.leftPosition>=550){
+        borrarBalas(balas)
+        }
+    },50)
+}
+
+let timerInsertar
+function insertarBalas(){
+    timerInsertar=setInterval(creadorBalas,2000)
+}
+
+function borrarBalas(balas){
+    if(balas.sprite.parentNode===frontera){
+        frontera.removeChild(balas.sprite)
+      }
+}
+function colisiones(balas,player){
+    if( balas.topPosition>=player.topPosition &&
+        balas.topPosition<=player.topPosition+150 &&
+        balas.leftPosition+50>=player.leftPosition &&
+        balas.leftPosition<=player.leftPosition+150
+
+    )
+    {
+        console.log("me colisiono todo loco")
+    }
+}
+
+        

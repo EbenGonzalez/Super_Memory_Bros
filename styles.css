@@ -284,12 +284,12 @@ body{
     
 }
 #reloj{
-height: 80px;
-width: 80px;
-background-image: url(extras/relojarena.gif);
-background-size: contain;
-background-repeat: no-repeat;
-position:absolute;
+    height: 80px;
+    width: 80px;
+    background-image: url(extras/relojarena.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
 
 
 
@@ -304,8 +304,8 @@ position:absolute;
 }
 
 .balas{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background-color: black;
     position: absolute;
     z-index: 3;
