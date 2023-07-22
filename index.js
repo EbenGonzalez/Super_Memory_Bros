@@ -20,21 +20,21 @@ let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,
 let celdasTotales=[]
 let insertarReset=document.getElementById("insertarreset")
 let botonReset=document.createElement("button")
-//let botonMute=document.getElementById("mute")
 let body=document.querySelector("body")
 let botonStart=document.getElementById("botonstart")
 let gameOver=document.getElementById("gameover")
 let pantallaInicio=document.getElementById("inicio")
+//marcadores
 let puntuacion=document.getElementById("puntuacion")
 let puntosIniciales=0
 let cronometro=document.getElementById("temporizador")
-let tiempoJuego=60 //////////////////////////////////////////////ojooo
+let tiempoJuego=60
 let temporizador
 let puntuacionFinal=document.getElementById("winner")
 let puntosFinales=document.getElementById("puntosfinales")
 let puntosTiempo=document.getElementById("puntostiempo")
 let sumapuntos=document.getElementById("sumapuntos")
-//let ambiente
+//audios
 let bandaSonora= new Audio("extras/tema-principal.mp3")
 let audioAcierto=new Audio("extras/parejas-buenas.mp3")
 let audioGameOver=new Audio("extras/game-over-mario-bros.mp3")
@@ -42,8 +42,8 @@ let audioWinner=new Audio("extras/winner.mp3")
 let audioFallo=new Audio("extras/error-parejas.mp3")
 let audioReset=new Audio("extras/reset.mp3")
 let audioGiro=new Audio("extras/girar-carta.mp3")
+//balas
 let frontera=document.getElementById("frontera")
-//let audioError=new Audio
 let posicionBalas=["50","200","350","500"]
 
 
@@ -200,6 +200,8 @@ function comprobarCartas(parejasRotas){
                createReset()
                clearInterval(temporizador)
                clearInterval(timerInsertar)
+               limpiarBalas()
+               
                
               
           
@@ -232,6 +234,7 @@ if (celdasTotales.length===7){   // modificar esto para probar mas rapido
     clearInterval(temporizador)
     setTimeout(function(){
         clearInterval(timerInsertar)
+        limpiarBalas()
         winner.style.opacity=1
         bandaSonora.pause()
         audioWinner.play()
@@ -249,6 +252,7 @@ function cuentaAtras(){
         tiempoJuego--
         cronometro.innerText=tiempoJuego
         if(tiempoJuego<= 0){
+            limpiarBalas()
             clearInterval(timerInsertar)
             clearInterval(temporizador)
             gameOver.style.opacity=1
@@ -264,7 +268,7 @@ function cuentaAtras(){
 function restart(){
     gameOver.style.opacity=0
     winner.style.opacity=0
-    tiempoJuego=60                   //ojo tiempoooo
+    tiempoJuego=60                  
     celdasTotales=[]
     clearInterval(temporizador)
     puntuacion.innerText="Puntuacion 0"
@@ -300,9 +304,7 @@ botonStart.addEventListener("click",function(e){
     cuentaAtras()
     bandaSonora.play()
     desorganizar(parejasAleatorias)
-    /*ambiente=setTimeout(function(){
-        bandaSonora.play()
-    },100)*/
+  
 })
 
 
@@ -311,17 +313,6 @@ botonReset.addEventListener("click",function(e){
     audioReset.play()
     restart()
 })
-/*let sonido=true
-botonMute.addEventListener("click",function(e){
-    console.log("hola soy el mute")
-    if(sonido===true){
-        bandaSonora.pause()
-        sonido=false
-    }else{
-        bandaSonora.play()
-        sonido=true
-    }
-})*/
 
 function Balas(top){
     this.sprite=document.createElement("div")
@@ -380,5 +371,10 @@ function colisiones(balas,player){
         
     }
 }
-
+function limpiarBalas() {
+    const balasRestantes=document.querySelectorAll(".balas")
+    for(let i=0;i<balasRestantes.length;i++){
+        frontera.removeChild(balasRestantes[i])
+    }
+  }
         

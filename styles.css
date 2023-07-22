@@ -37,8 +37,7 @@ body{
     height: 600px;
     left:35%;
     top:15%;   
-    z-index: 1;
-    
+    z-index: 1;   
 }
 
 #cabecera{
@@ -46,12 +45,10 @@ body{
     height: 100px;
     position:absolute;
     top:5%;
-    left:25%;   
-     
+    left:25%;      
 }
 
 .cab{
-    
     display: inline-block;
     width: 250px;
     height: 50px;
@@ -62,12 +59,8 @@ body{
     margin-left: 25px;
     font-family:"mariofont";
     font-size: 22px;
-    
     color: white;
-    
 }
-.seleccion{}
-    
 
 .trasera{
     width: 150px;
