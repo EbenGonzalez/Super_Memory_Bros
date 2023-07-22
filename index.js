@@ -44,6 +44,7 @@ let audioReset=new Audio("extras/reset.mp3")
 let audioGiro=new Audio("extras/girar-carta.mp3")
 let frontera=document.getElementById("frontera")
 //let audioError=new Audio
+let posicionBalas=["0","150","300","450"]
 
 
 
@@ -99,8 +100,8 @@ function Player(){
 
 let parejasAleatorias=["pareja1","pareja1","pareja2","pareja2","pareja3","pareja3","pareja4","pareja4","pareja5","pareja5","pareja6","pareja6","pareja7","pareja7","bowser","bowser"]
 
-function desorganizar(parejasAleatorias){
-    parejasAleatorias.sort(function(a,b){
+function desorganizar(arr){
+    arr.sort(function(a,b){
     return Math.random()-0.5
   })
   }
@@ -312,9 +313,9 @@ botonMute.addEventListener("click",function(e){
     }
 })*/
 
-function Enemigo(){
+function Enemigo(top){
     this.sprite=document.createElement("div")
-    this.topPosition=0
+    this.topPosition=top
     this.leftPosition=0
 
     this.creadorBalas=function(frontera){
@@ -325,9 +326,13 @@ function Enemigo(){
     }
 }
 
-function insertarBalas(){
-    let balasTimer=setInterval(function(){
-        const balas=new Enemigo()
-        balas.creadorBalas(frontera)
-    },2000)
+function insertarBalas(){    /*start */
+    let balasTimer=setInterval(generadorBalas,2000)
+}
+
+function generadorBalas(){/*createEnemy*/ 
+    desorganizar(posicionBalas)
+    let randomTop=posicionBalas[1]
+    const balas=new Enemigo(randomTop)
+    balas.creadorBalas(frontera)
 }
