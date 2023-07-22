@@ -39,7 +39,7 @@ let bandaSonora= new Audio("extras/tema-principal.mp3")
 let audioAcierto=new Audio("extras/parejas-buenas.mp3")
 let audioGameOver=new Audio("extras/game-over-mario-bros.mp3")
 let audioWinner=new Audio("extras/winner.mp3")
-//let audioFallo=new Audio("extras/error-parejas.mp3")
+let audioFallo=new Audio("extras/error-parejas.mp3")
 let audioReset=new Audio("extras/reset.mp3")
 let audioGiro=new Audio("extras/girar-carta.mp3")
 let frontera=document.getElementById("frontera")
@@ -188,7 +188,7 @@ function comprobarCartas(parejasRotas){
 
         if(clasePrimera==="bowser"||claseSegunda==="bowser"){  // solo un bowser
             //audioFallo.play()
-            tiempoJuego-=5
+            tiempoJuego-=3
             cronometro.innerText=tiempoJuego
            // puntuacion.innerText="Puntuacion "+ puntosIniciales
         }
@@ -275,6 +275,7 @@ function restart(){
     deleteReset()
     bandaSonora.currentTime = 0
     bandaSonora.play()
+    insertarBalas()
     }
 
 function resetearCeldas(celdasReset){
@@ -346,7 +347,7 @@ function mueveBalas(balas){
         balas.sprite.style.left=balas.leftPosition+"px"
         colisiones(balas,player)
 
-        if(balas.leftPosition>=550){
+        if(balas.leftPosition>=530){
         borrarBalas(balas)
         }
     },50)
@@ -372,6 +373,7 @@ function colisiones(balas,player){
     )
     {
         frontera.removeChild(balas.sprite)
+        audioFallo.play()
         console.log("pum")
         tiempoJuego-=1
             cronometro.innerText=tiempoJuego
