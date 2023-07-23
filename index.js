@@ -54,13 +54,15 @@ let frontera=document.getElementById("frontera")
 let posicionBalas=["50","200","350","500"]
 
 function mute(audios){
-    for(let i=0;i<=audios.length;i++){
+    for(let i=0;i<audios.length;i++){
         if(audioOn){
             audios[i].volume=0
             audioOn=false
+            botonAudio.style.backgroundColor="red"
         }else{
             audios[i].volume=1
             audioOn=true
+            botonAudio.style.backgroundColor="white"
         }
     }
 }
