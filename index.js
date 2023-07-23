@@ -18,9 +18,11 @@ let celda16=document.getElementById("c16")
 let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
 let celdasTotales=[]
 // botones, pantallas de condicion...
+let botonAudio=document.getElementById("botonaudio")
 let botonControl=document.getElementById("botoncontrol")
 let controles=document.createElement("div")
 let controlesPantalla=true
+let audioOn=true
 let insertarControles=document.getElementById("pantallacontrol")
 let insertarReset=document.getElementById("insertarreset")
 let botonReset=document.createElement("button")
@@ -46,13 +48,26 @@ let audioWinner=new Audio("extras/winner.mp3")
 let audioFallo=new Audio("extras/error-parejas.mp3")
 let audioReset=new Audio("extras/reset.mp3")
 let audioGiro=new Audio("extras/girar-carta.mp3")
+let audios=[bandaSonora,audioAcierto,audioGameOver,audioWinner,audioFallo,audioReset,audioGiro]
 //balas
 let frontera=document.getElementById("frontera")
 let posicionBalas=["50","200","350","500"]
 
+function mute(audios){
+    for(let i=0;i<=audios.length;i++){
+        if(audioOn){
+            audios[i].volume=0
+            audioOn=false
+        }else{
+            audios[i].volume=1
+            audioOn=true
+        }
+    }
+}
+
 function instrucciones(){
     controles.setAttribute("id", "controles")
-    if(controlesPantalla===true){
+    if(controlesPantalla){
         insertarControles.appendChild(controles)
         controlesPantalla=false
     }else{
@@ -243,12 +258,16 @@ botonReset.addEventListener("click",function(e){    // boton reset que sale en l
 })
 
 botonControl.addEventListener("click",function(e){
-    console.log ("muestro los controles")
     instrucciones()
-    botonControl.blur()
-
+    botonControl.blur()  // el blur evita que el boton se quede seleccionado una vez se pinche el boton, ya
+                         // que si no luego al apretar la tecla enter se ejecuta la funcion del boton.
 })
 
+botonAudio.addEventListener("click",function(e){
+    mute(audios)
+    botonAudio.blur()
+    console.log("nooo")
+})
 /**********************************************************************************************************************************************************************
  *********************************************************************************************************************************************************************/
 //Aqui empezamos con el codigo referente a las balas
