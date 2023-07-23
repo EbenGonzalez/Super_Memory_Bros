@@ -102,13 +102,13 @@ function desorganizar(arr){   // algoritmo que simplemente coloca aleatoriamente
 
 let parejasRotas=[]       // almacenaremos UNICAMENTE dos clases para luego poder compararlas y vaciar el array.
 
-function cartasTablero(arriba, izquierda) {
-    for (let i = 0; i < celdasReset.length; i++) {
-        const celda = celdasReset[i];
-        if (arriba === (Math.floor(i / 4) * 150) && izquierda === (i % 4) * 150 && parejasRotas.length < 2 && celda.classList.contains("trasera")) {
-            celda.classList.remove("trasera");
-            celda.classList.add(parejasAleatorias[i]);
-            parejasRotas.push(celda);
+function cartasTablero(arriba,izquierda){    // Funcion refactorizada comentada en el anexo .js
+    for(let i=0; i<celdasReset.length;i++){ 
+        const celda=celdasReset[i]                                                                                                          
+        if(arriba===(Math.floor(i/4)*150) && izquierda===(i%4)*150 && parejasRotas.length<2 && celda.classList.contains("trasera")){ 
+            celda.classList.remove("trasera") 
+            celda.classList.add(parejasAleatorias[i]) 
+            parejasRotas.push(celda) 
         }
     }
 }
