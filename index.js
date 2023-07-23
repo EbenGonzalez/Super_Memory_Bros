@@ -41,7 +41,7 @@ let puntosFinales=document.getElementById("puntosfinales")
 let puntosTiempo=document.getElementById("puntostiempo")
 let sumapuntos=document.getElementById("sumapuntos")
 //audios
-let bandaSonora= new Audio("extras/tema-principal.mp3")
+let bandaSonora=new Audio("extras/tema-principal.mp3")
 let audioAcierto=new Audio("extras/parejas-buenas.mp3")
 let audioGameOver=new Audio("extras/game-over-mario-bros.mp3")
 let audioWinner=new Audio("extras/winner.mp3")
@@ -53,34 +53,34 @@ let audios=[bandaSonora,audioAcierto,audioGameOver,audioWinner,audioFallo,audioR
 let frontera=document.getElementById("frontera")
 let posicionBalas=["50","200","350","500"]
 
-function mute(audios){
-    for(let i=0;i<audios.length;i++){
-        if(audioOn){
-            audios[i].volume=0
-            audioOn=false
-            botonAudio.style.backgroundColor="red"
-        }else{
-            audios[i].volume=1
-            audioOn=true
+function mute(audios){                              // funcion para el boton de mute. (esta buggeada, hay dos sonidos del array con los que hace lo contrario.)
+    for(let i=0;i<audios.length;i++){               // guardamos todos los audios en un array y luego iteramos por cada uno.
+        if(audioOn){                                // utilizamos una variable auxiliar para actualizarla cada vez y rotar.
+            audios[i].volume=0                      // ponemos cada audio al minimo volumen
+            audioOn=false                           // actualizamos la variable auxiliar.
+            botonAudio.style.backgroundColor="red"  // cambiamos el color de fondo cada vez que apretamos el boton.
+            }else{
+                audios[i].volume=1                  // los ponemos a su volumen maximo nuevamente
+            audioOn=true                            // actualizamos la variable auxiliar.
             botonAudio.style.backgroundColor="white"
         }
     }
 }
 
-function instrucciones(){
-    controles.setAttribute("id", "controles")
-    if(controlesPantalla){
+function instrucciones(){                           // funcion que utilizaremos para mostrar los controles en pantalla.
+    controles.setAttribute("id", "controles")       // desde js creamos un elemento, le asignamos clase y la 
+    if(controlesPantalla){                          // insertamos al apretar el boton.
         insertarControles.appendChild(controles)
-        controlesPantalla=false
+        controlesPantalla=false                     // variable auxiliar que utilizamos para rotar.
     }else{
-        insertarControles.removeChild(controles)
+        insertarControles.removeChild(controles)    // eliminamos el elemento.
         controlesPantalla=true
     }
 }
 
-function createReset(){                           // funciones para añadir y quitar el boton de RESET porque nos
-botonReset.setAttribute("id", "resetear")         // creaba se quedaba seleccionada y creaba conflicto con las flechas 
-setTimeout(function(){                            // de direccion.
+function createReset(){                           // funciones para añadir y quitar el boton de RESET
+botonReset.setAttribute("id", "resetear")         
+setTimeout(function(){                            
     insertarReset.appendChild(botonReset)
     },3000)
 }
@@ -89,7 +89,7 @@ function deleteReset(){
 insertarReset.removeChild(botonReset)
 }
 
-function Player(){                                 // funcion constructora en el que asignamos un elemento del DOM
+function Player(){                                 // funcion constructora del jugador.
     this.sprite=document.getElementById("player")
     this.topPosition=0
     this.leftPosition=0
@@ -117,9 +117,9 @@ function Player(){                                 // funcion constructora en el
             audioGiro.play()                     // al apretar el enter definimos la posicion en la que estamos en el eje x
             let arriba=this.sprite.offsetTop     // y en el eje y, y las almacenamos en sendas variables para luego usarlas en la funcion tablero,
             let izquierda=this.sprite.offsetLeft // ya que disponemos de 16 posiciones distintas.
-            cartasTablero(arriba,izquierda)
-            comprobarCartas(parejasRotas)        // tambien ejecutamos varias funciones como la comprobacion de las parejas y de las condiciones de
-            ganador(celdasTotales)               // derrota o victoria.
+            cartasTablero(arriba,izquierda)      // tambien ejecutamos varias funciones como la comprobacion de las parejas y de las condiciones de
+            comprobarCartas(parejasRotas)        // derrota o victoria.
+            ganador(celdasTotales)                                                             
         }
     }
 }
@@ -145,7 +145,7 @@ function cartasTablero(arriba,izquierda){    // Funcion refactorizada comentada 
     }
 }
 
-function comprobarCartas(parejasRotas){
+function comprobarCartas(parejasRotas){      // compararemos cada pareja de cartas y actuaremos como corresponda.
     let primera=parejasRotas[0]              // asignamos cada posicion a una variable
     let clasePrimera=primera.classList[0]    // y cada una de sus clases a otra para compararlas.
     let segunda=parejasRotas[1]
@@ -153,12 +153,11 @@ function comprobarCartas(parejasRotas){
         if(clasePrimera==="bowser"||claseSegunda==="bowser"){    // solo un bowser,nos resta 3 segundos de tiempo.
             tiempoJuego-=3
             cronometro.innerText=tiempoJuego
-          
         }
         if(clasePrimera==="bowser"&&claseSegunda==="bowser"){   // doble bowser game over.
             setTimeout(function(){                              // paramos temporizador para que no se produzca otra derrota por tiempo.
                bandaSonora.pause()                              // mostramos la pantalla de gameover que siempre ha
-               audioGameOver.play()                             // estado ahi pero en modo transparente estado ahi pero en modo transparente.
+               audioGameOver.play()                             // estado ahi pero en modo transparente.
                gameOver.style.opacity=1                         // creamos el boton  para resetear, cambiamos audios.
                createReset()                                    // paramos la generacion de balas y limpiamos las balas  restantes.
                clearInterval(temporizador)
@@ -259,16 +258,15 @@ botonReset.addEventListener("click",function(e){    // boton reset que sale en l
     restart()
 })
 
-botonControl.addEventListener("click",function(e){
+botonControl.addEventListener("click",function(e){   // boton que ejecuta la funcion que muestra los controles en la pantalla.
     instrucciones()
     botonControl.blur()  // el blur evita que el boton se quede seleccionado una vez se pinche el boton, ya
                          // que si no luego al apretar la tecla enter se ejecuta la funcion del boton.
 })
 
-botonAudio.addEventListener("click",function(e){
+botonAudio.addEventListener("click",function(e){  // boton que ejecuta la funcion del mute.(bugged)
     mute(audios)
-    botonAudio.blur()
-    console.log("nooo")
+    botonAudio.blur()   
 })
 /**********************************************************************************************************************************************************************
  *********************************************************************************************************************************************************************/
