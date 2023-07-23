@@ -298,3 +298,22 @@ body{
     position: absolute;
     z-index: 3;
 }
+
+#botoncontrol{
+    height: 150px;
+    width: 150px; 
+    background-color: rgb(216, 179, 179);
+    position: absolute;
+    left:15%;
+    top:5%;
+}
+
+#controles{
+    height: 400px;
+    width: 200px;
+    background-color: aqua;
+    position: absolute;
+    top:25%;
+    left:15%
+
+}

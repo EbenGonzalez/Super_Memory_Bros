@@ -18,6 +18,10 @@ let celda16=document.getElementById("c16")
 let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
 let celdasTotales=[]
 // botones, pantallas de condicion...
+let botonControl=document.getElementById("botoncontrol")
+let controles=document.createElement("div")
+let controlesPantalla=true
+let insertarControles=document.getElementById("pantallacontrol")
 let insertarReset=document.getElementById("insertarreset")
 let botonReset=document.createElement("button")
 let body=document.querySelector("body")
@@ -45,6 +49,19 @@ let audioGiro=new Audio("extras/girar-carta.mp3")
 //balas
 let frontera=document.getElementById("frontera")
 let posicionBalas=["50","200","350","500"]
+
+function instrucciones(){
+    
+    controles.setAttribute("id", "controles")
+    if(controlesPantalla===true){
+        insertarControles.appendChild(controles)
+        controlesPantalla=false
+    }else{
+        insertarControles.removeChild(controles)
+        controlesPantalla=true
+    }
+}
+
 
 function createReset(){                           // funciones para añadir y quitar el boton de RESET porque nos
 botonReset.setAttribute("id", "resetear")         // creaba se quedaba seleccionada y creaba conflicto con las flechas 
@@ -225,6 +242,13 @@ botonStart.addEventListener("click",function(e){
 botonReset.addEventListener("click",function(e){    // boton reset que sale en las pantallas de victoria o derrota,
     audioReset.play()                               // ejecuta la musiquita general y la funcion restart.
     restart()
+})
+
+botonControl.addEventListener("click",function(e){
+    console.log ("muestro los controles")
+    instrucciones()
+    botonControl.blur()
+
 })
 
 /**********************************************************************************************************************************************************************
