@@ -51,7 +51,6 @@ let frontera=document.getElementById("frontera")
 let posicionBalas=["50","200","350","500"]
 
 function instrucciones(){
-    
     controles.setAttribute("id", "controles")
     if(controlesPantalla===true){
         insertarControles.appendChild(controles)
@@ -61,7 +60,6 @@ function instrucciones(){
         controlesPantalla=true
     }
 }
-
 
 function createReset(){                           // funciones para añadir y quitar el boton de RESET porque nos
 botonReset.setAttribute("id", "resetear")         // creaba se quedaba seleccionada y creaba conflicto con las flechas 
