@@ -57,14 +57,12 @@ function mute(audios){                              // funcion para el boton de 
     for(let i=0;i<audios.length;i++){               // guardamos todos los audios en un array y luego iteramos por cada uno.
         if(audioOn){                                // utilizamos una variable auxiliar para actualizarla cada vez y rotar.
             audios[i].volume=0                      // ponemos cada audio al minimo volumen
-            audioOn=false                           // actualizamos la variable auxiliar.
             botonAudio.style.backgroundColor="red"  // cambiamos el color de fondo cada vez que apretamos el boton.
             }else{
-                audios[i].volume=1                  // los ponemos a su volumen maximo nuevamente
-            audioOn=true                            // actualizamos la variable auxiliar.
+                audios[i].volume=1                  // los ponemos a su volumen maximo nuevamente                         
             botonAudio.style.backgroundColor="white"
         }
-    }
+    }audioOn=!audioOn                               // actualizamos la variable auxiliar.
 }
 
 function instrucciones(){                           // funcion que utilizaremos para mostrar los controles en pantalla.
