@@ -1,21 +1,10 @@
 // asignamos variables a cada celda para luego utilizarlas para asignarles clases aleatorias y poder compararlas.
-let celda1=document.getElementById("c1")
-let celda2=document.getElementById("c2")
-let celda3=document.getElementById("c3")
-let celda4=document.getElementById("c4")
-let celda5=document.getElementById("c5")
-let celda6=document.getElementById("c6")
-let celda7=document.getElementById("c7")
-let celda8=document.getElementById("c8")
-let celda9=document.getElementById("c9")
-let celda10=document.getElementById("c10")
-let celda11=document.getElementById("c11")
-let celda12=document.getElementById("c12")
-let celda13=document.getElementById("c13")
-let celda14=document.getElementById("c14")
-let celda15=document.getElementById("c15")
-let celda16=document.getElementById("c16")
-let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
+let celdas=[]
+let celdasReset = celdas;
+for (let i = 1; i <= 16; i++) {
+  celdas.push(document.getElementById("c" + i));
+}
+//let celdasReset=[celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16]
 let celdasTotales=[]
 // botones, pantallas de condicion...
 let botonAudio=document.getElementById("botonaudio")
