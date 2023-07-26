@@ -169,7 +169,7 @@ function comprobarCartas(parejasRotas){      // compararemos cada pareja de cart
     }
 
 function ganador(celdasTotales){
-if (celdasTotales.length===7){                          // comprobamos si llegamos a 7 que son las parejas correctas maximas que podemos lograr.
+if (celdasTotales.length===2){                          // comprobamos si llegamos a 7 que son las parejas correctas maximas que podemos lograr.
     clearInterval(temporizador)                         // reseteamos, cambiamos audios, creamos boton reset, mostramos pantalla  ganadora oculta como antes.
     setTimeout(function(){                              // aqui tambien actualizaremos los puntos, bonos de tiempo (10 puntoa por sec restante),
         clearInterval(timerInsertar)                    // y mostraremos marcador total.
